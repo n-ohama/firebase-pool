@@ -1,0 +1,17 @@
+export const tableSubjects = [
+  "Game Score",
+  "Total Break",
+  "Dry Breaks",
+  "Scratches on Break",
+  "Ball Made on Break",
+  "Shot After The Break",
+  "Break and Run",
+  "Consecutive Break and Runs",
+  "Longest Game Winning Streak",
+  "In Game Stats",
+  "Balls Pocketed",
+  "Balls Missed",
+  "Unforced Errors",
+  "Safety Errors",
+  "Kicking Errors",
+];

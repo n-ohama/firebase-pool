@@ -1,26 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { ChakraProvider } from "@chakra-ui/react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { RecoilRoot } from "recoil";
+import { DetailPage } from "./pages/detail_page";
+import { Home } from "./pages/home";
+import { ListPage } from "./pages/list_page";
 
-function App() {
+const links = [
+  { path: "/", element: <Home /> },
+  { path: "/list", element: <ListPage /> },
+  { path: "/detail/:id", element: <DetailPage /> },
+];
+
+const Router = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      {links.map((item) => {
+        return (
+          <Route key={item.path} path={item.path} element={item.element} />
+        );
+      })}
+    </Routes>
   );
-}
+};
+
+const App = () => {
+  return (
+    <ChakraProvider>
+      <RecoilRoot>
+        <BrowserRouter>
+          <Router />
+        </BrowserRouter>
+      </RecoilRoot>
+    </ChakraProvider>
+  );
+};
 
 export default App;
